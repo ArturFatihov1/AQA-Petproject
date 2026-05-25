@@ -31,44 +31,53 @@ public class WebTablesPage {
             submit = $("#submit");
     private final ElementsCollection rows = $$("tbody tr");
 
+    @Step("Ввести имя: {text}")
     public WebTablesPage setFirstName(String text) {
         firstName.setValue(text);
         return this;
     }
 
+    @Step("Ввести фамилию: {text}")
     public WebTablesPage setLastName(String text) {
         lastName.setValue(text);
         return this;
     }
 
+    @Step("Ввести email: {text}")
     public WebTablesPage setEmail(String text) {
         userEmail.setValue(text);
         return this;
     }
 
+    @Step("Ввести возраст: {text}")
     public WebTablesPage setAge(String text) {
         age.setValue(text);
         return this;
     }
 
+    @Step("Ввести зарплату: {salary}")
     public WebTablesPage setSalary(Integer text) {
         salary.setValue(String.valueOf(text));
         return this;
     }
 
+    @Step("Ввести отдел: {text}")
     public WebTablesPage setDeportment(String text) {
         department.setValue(text);
         return this;
     }
 
+    @Step("Нажать кнопку Submit")
     public void submit() {
         submit.click();
     }
 
+    @Step("Нажать кнопку Add New Record")
     public void addNewRecordButton() {
         addNewRecordButton.click();
     }
 
+    @Step("Поиск по запросу: {query}")
     public void search(String query) {
         searchBox.setValue(query);
     }

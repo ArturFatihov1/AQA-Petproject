@@ -32,8 +32,9 @@ public class TextBoxTest extends BaseUiTest {
     }
 
     @Test
-    @DisplayName("filling form correctly")
-    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Успешное заполнение всех полей формы")
+    @Description("Заполнение всех полей валидными данными и проверка корректности отображения в блоке вывода.")
+    @Severity(SeverityLevel.CRITICAL)
     public void fullFormTest() {
         String name = faker.name().fullName();
         String email = faker.internet().emailAddress();
@@ -53,7 +54,8 @@ public class TextBoxTest extends BaseUiTest {
     }
 
     @Test
-    @DisplayName("filling not full form")
+    @DisplayName("Заполнение формы без одного поля")
+    @Severity(SeverityLevel.NORMAL)
     public void notFullFormTest() {
         String name = faker.name().fullName();
         String email = faker.internet().emailAddress();
@@ -71,7 +73,8 @@ public class TextBoxTest extends BaseUiTest {
     }
 
     @Test
-    @DisplayName("filling not correcly email")
+    @DisplayName("Проверка валидации некорректного email")
+    @Severity(SeverityLevel.NORMAL)
     public void errorEmailTest() {
         textBoxPage.setEmail("artur.fatihov23@mail");
         textBoxPage.submit();
@@ -79,7 +82,8 @@ public class TextBoxTest extends BaseUiTest {
     }
 
     @Test
-    @DisplayName("empty filling form")
+    @DisplayName("Отправка пустой формы")
+    @Severity(SeverityLevel.TRIVIAL)
     public void submitEmptyFormTest() {
         textBoxPage.submit();
         textBoxPage.getOutput().shouldNotBe(visible);

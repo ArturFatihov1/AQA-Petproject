@@ -1,6 +1,7 @@
 package tests.demoqa.pages.elementsPage;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,25 +12,25 @@ import static com.codeborne.selenide.Selenide.$;
 @Getter
 @NoArgsConstructor
 public class ButtonsPage {
-    private final SelenideElement doubleClick = $("#doubleClickBtn"),
-            rightClick = $("#rightClickBtn"),
-            click = $(byText("Click Me")),
+    private final SelenideElement doubleClickBtn = $("#doubleClickBtn"),
+            rightClickBtn = $("#rightClickBtn"),
+            clickBtn = $(byText("Click Me")),
             doubleClickMessage = $("#doubleClickMessage"),
             rightClickMessage = $("#rightClickMessage"),
             clickMessage = $("#dynamicClickMessage");
 
+    @Step("Выполнить двойной клик по кнопке")
     public void doubleClick() {
-        doubleClick.shouldBe(visible);
-        doubleClick.doubleClick();
+        doubleClickBtn.shouldBe(visible).doubleClick();
     }
 
+    @Step("Выполнить правый клик по кнопке")
     public void rightClick() {
-        rightClick.shouldBe(visible);
-        rightClick.contextClick();
+        rightClickBtn.shouldBe(visible).contextClick();
     }
 
+    @Step("Выполнить обычный клик по кнопке")
     public void click() {
-        click.shouldBe(visible);
-        click.click();
+        clickBtn.shouldBe(visible).click();
     }
 }

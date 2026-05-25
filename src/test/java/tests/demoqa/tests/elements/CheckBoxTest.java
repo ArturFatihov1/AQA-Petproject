@@ -1,9 +1,7 @@
 package tests.demoqa.tests.elements;
 
 import com.codeborne.selenide.Selenide;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -32,7 +30,9 @@ public class CheckBoxTest extends BaseUiTest {
     }
 
     @Test
-    @DisplayName("selected home checkbox and assert result")
+    @DisplayName("Выбор чекбокса Home и проверка отображения всех элементов")
+    @Description("При выборе корневого элемента Home должны отобразиться все вложенные элементы в блоке результатов.")
+    @Severity(SeverityLevel.CRITICAL)
     public void selectedHomeTest() {
         checkBoxPage.openSwitcher().selectHome();
 
@@ -47,7 +47,8 @@ public class CheckBoxTest extends BaseUiTest {
     }
 
     @Test
-    @DisplayName("open switcher home")
+    @DisplayName("Открытие дерева элементов через свитчер")
+    @Severity(SeverityLevel.NORMAL)
     public void switcherHomeOpenTest() {
         checkBoxPage.openSwitcher();
         checkBoxPage.getHome().shouldBe(visible);
@@ -57,20 +58,23 @@ public class CheckBoxTest extends BaseUiTest {
     }
 
     @Test
-    @DisplayName("open switcher desktop and select notes checkbox")
+    @DisplayName("Выбор чекбокса Notes внутри Desktop")
+    @Severity(SeverityLevel.NORMAL)
     public void switcherDesktopOpenTest() {
         checkBoxPage.openSwitcher().openDesktopSwitcher().selectNotes();
         checkBoxPage.getResult().shouldHave(text("You have selected :"), text("notes"));
     }
 
     @Test
-    @DisplayName("nothing action and assert empty result")
+    @DisplayName("Проверка отсутствия результата при отсутствии действий")
+    @Severity(SeverityLevel.TRIVIAL)
     public void emptyResultTest() {
         checkBoxPage.getResult().shouldNotBe(visible);
     }
 
     @Test
-    @DisplayName("unselected notes, assert not visible result")
+    @DisplayName("Проверка снятия выбора с чекбокса Notes")
+    @Severity(SeverityLevel.NORMAL)
     public void unSelectedCheckBox() {
         checkBoxPage.openSwitcher().openDesktopSwitcher().selectNotes();
 

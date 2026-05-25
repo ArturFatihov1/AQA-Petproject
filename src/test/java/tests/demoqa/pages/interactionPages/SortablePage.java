@@ -1,6 +1,7 @@
 package tests.demoqa.pages.interactionPages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -16,10 +17,12 @@ public class SortablePage {
             oneGridElement = $("[data-handler-id=\"T12\"]"),
             twoGridElement = $("[data-handler-id=\"T14\"]");
 
+    @Step("Открыть вкладку Grid")
     public void openGridTab() {
         tabGrid.click();
     }
 
+    @Step("Переместить элемент на позицию другого элемента")
     public SortablePage moveElement(SelenideElement moveIt, SelenideElement toIt) {
         actions()
                 .clickAndHold(moveIt)

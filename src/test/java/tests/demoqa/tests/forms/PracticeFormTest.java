@@ -1,14 +1,20 @@
 package tests.demoqa.tests.forms;
 
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.*;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.data.PracticeFormData;
 import tests.demoqa.pages.formsPage.PracticeFormPage;
 import tests.demoqa.tests.base.BaseUiTest;
 
+@Epic("DemoQA ui test")
+@Feature("Forms")
+@Story("Practice Form")
+@DisplayName("Тестирование формы регистрации (Practice Form)")
 public class PracticeFormTest extends BaseUiTest {
     PracticeFormPage practiceFormPage = new PracticeFormPage();
     PracticeFormData practiceFormData = new PracticeFormData();
@@ -26,6 +32,8 @@ public class PracticeFormTest extends BaseUiTest {
     }
 
     @Test
+    @DisplayName("Успешное заполнение всей формы регистрации")
+    @Severity(SeverityLevel.CRITICAL)
     public void fillPracticeFormTest() {
         practiceFormData = new PracticeFormData(
                 faker.name().firstName(),

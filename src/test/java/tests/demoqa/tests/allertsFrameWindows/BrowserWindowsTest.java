@@ -1,10 +1,11 @@
 package tests.demoqa.tests.allertsFrameWindows;
 
 import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WindowType;
 import tests.demoqa.pages.allertsFrameWindowsPage.BrowserWindowsPage;
 import tests.demoqa.tests.base.BaseUiTest;
@@ -16,6 +17,9 @@ import static com.codeborne.selenide.Selenide.switchTo;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
+@Epic("DemoQA ui test")
+@Feature("Alerts, Frame & Windows")
+@DisplayName("Тестирование работы с окнами и вкладками браузера")
 public class BrowserWindowsTest extends BaseUiTest {
     BrowserWindowsPage browserWindowsPage = new BrowserWindowsPage();
 
@@ -30,6 +34,8 @@ public class BrowserWindowsTest extends BaseUiTest {
     }
 
     @Test
+    @DisplayName("Проверка открытия новой вкладки")
+    @Severity(SeverityLevel.NORMAL)
     public void clickNewTabTest() {
         browserWindowsPage.newTab();
         switchTo().window(1);
@@ -37,6 +43,8 @@ public class BrowserWindowsTest extends BaseUiTest {
     }
 
     @Test
+    @DisplayName("Проверка открытия нового окна браузера")
+    @Severity(SeverityLevel.NORMAL)
     public void clickNewWindowsTest() {
         browserWindowsPage.newWindow();
         switchTo().newWindow(WindowType.WINDOW);
@@ -45,6 +53,8 @@ public class BrowserWindowsTest extends BaseUiTest {
 
     @Disabled
     @Test
+    @DisplayName("Проверка окна с сообщением")
+    @Severity(SeverityLevel.MINOR)
     public void clickNewWindowMessageTest() {
         browserWindowsPage.messageWindows();
         switchTo().window(1);

@@ -20,24 +20,25 @@ public class CheckBoxPage {
             notes = $("[aria-label=\"Select Notes\"]"),
             result = $("#result");
 
-    @Step("click on switcher")
+    @Step("Развернуть дерево элементов")
     public CheckBoxPage openSwitcher() {
         switcher.click();
         return this;
     }
 
+    @Step("Развернуть ветку Desktop")
     public CheckBoxPage openDesktopSwitcher() {
         desktopSwitcher.click();
         return this;
     }
 
-    @Step("click on home checkbox")
+    @Step("Выбрать чекбокс Home")
     public CheckBoxPage selectHome() {
         home.click();
         return this;
     }
 
-    @Step("click on inner notes checkbox")
+    @Step("Выбрать чекбокс Notes")
     public CheckBoxPage selectNotes() {
         notes.click();
         return this;

@@ -1,6 +1,7 @@
 package tests.demoqa.pages.elementsPage;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,10 +15,12 @@ public class RadioButtonPage {
             noRadio = $("#noRadio"),
             result = $(".mt-3");
 
+    @Step("Выбрать переключатель 'Yes'")
     public void selectYes() {
         yesRadio.click();
     }
 
+    @Step("Выбрать переключатель 'Impressive'")
     public void selectImpressiveRadio() {
         impressiveRadio.click();
     }

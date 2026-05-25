@@ -1,9 +1,11 @@
 package tests.demoqa.tests.interactions;
 
 import com.codeborne.selenide.Selenide;
-import io.qameta.allure.Flaky;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junitpioneer.jupiter.RetryingTest;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.Rectangle;
@@ -14,6 +16,10 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static org.junit.jupiter.api.Assertions.*;
 
+@Epic("DemoQA test ui")
+@Feature("Interactions")
+@Story("Draggable")
+@DisplayName("Тестирование перетаскивания элементов (Drag and Drop)")
 @Flaky
 public class DraggableTest extends BaseUiTest {
 
@@ -24,7 +30,9 @@ public class DraggableTest extends BaseUiTest {
         Selenide.open("dragabble");
     }
 
-    @RetryingTest(3)
+    @Test
+    @DisplayName("Простой тест перетаскивания")
+    @Severity(SeverityLevel.NORMAL)
     void simpleTest() {
 
         int xOffset = 200;
@@ -37,7 +45,9 @@ public class DraggableTest extends BaseUiTest {
                 draggablePage.getDragMeEndPosition());
     }
 
-    @RetryingTest(3)
+    @Test
+    @DisplayName("Перетаскивание с ограничением по осям X и Y")
+    @Severity(SeverityLevel.NORMAL)
     void axisRestrictedTest() {
 
         int xOffset = 200;
@@ -57,7 +67,9 @@ public class DraggableTest extends BaseUiTest {
                 draggablePage.getOnlyYEndPosition());
     }
 
-    @RetryingTest(3)
+    @Test
+    @DisplayName("Перетаскивание в пределах контейнера")
+    @Severity(SeverityLevel.NORMAL)
     void containerRestrictedContainerTest() {
 
         draggablePage.openContainerRestricted();
@@ -83,7 +95,9 @@ public class DraggableTest extends BaseUiTest {
 
     }
 
-    @RetryingTest(3)
+    @Test
+    @DisplayName("Перетаскивание в пределах контейнера")
+    @Severity(SeverityLevel.NORMAL)
     void containerRestrictedParentTest() {
 
         draggablePage.openContainerRestricted();
@@ -110,6 +124,8 @@ public class DraggableTest extends BaseUiTest {
     }
 
     @RetryingTest(3)
+    @DisplayName("Перетаскивание по курсору")
+    @Severity(SeverityLevel.NORMAL)
     void cursorStyleTest() {
 
         int xCoordinate = 400;

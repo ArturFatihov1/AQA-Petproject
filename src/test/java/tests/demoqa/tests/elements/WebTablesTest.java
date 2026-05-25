@@ -1,15 +1,17 @@
 package tests.demoqa.tests.elements;
 
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.*;
 import net.datafaker.Faker;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import tests.demoqa.data.WebTablesData;
 import tests.demoqa.pages.elementsPage.WebTablesPage;
 import tests.demoqa.tests.base.BaseUiTest;
 
+@Epic("DemoQA test ui")
+@Feature("Elements")
+@Story("Web Tables")
+@DisplayName("Тестирование управления записями в таблице")
 public class WebTablesTest extends BaseUiTest {
 
     WebTablesPage webTablesPage = new WebTablesPage();
@@ -51,6 +53,8 @@ public class WebTablesTest extends BaseUiTest {
     }
 
     @Test
+    @DisplayName("Проверка добавления новой записи")
+    @Severity(SeverityLevel.CRITICAL)
     public void recordAddedTest() {
         int lastRow = webTablesPage.getLastRowIndex();
 
@@ -66,6 +70,8 @@ public class WebTablesTest extends BaseUiTest {
     }
 
     @Test
+    @DisplayName("Проверка редактирования существующей записи")
+    @Severity(SeverityLevel.NORMAL)
     public void editRecordTest() {
         webTablesPage.editRecordByText(webTablesData.getEmail());
 
@@ -86,14 +92,17 @@ public class WebTablesTest extends BaseUiTest {
     }
 
     @Test
+    @DisplayName("Проверка удаления записи")
+    @Severity(SeverityLevel.NORMAL)
     public void deleteRecordTest() {
         int oldSize = webTablesPage.getLastRowIndex();
         webTablesPage.deleteRecordByText(webTablesData.getEmail());
         int newSize = webTablesPage.getLastRowIndex();
         Assertions.assertEquals(oldSize, newSize + 1);
     }
-
     @Test
+    @DisplayName("Проверка поиска по таблице")
+    @Severity(SeverityLevel.NORMAL)
     public void searchRecordTest() {
         webTablesPage.search(webTablesData.getFirstName());
         int a = 0;
