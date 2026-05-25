@@ -12,7 +12,6 @@ public abstract class BaseUiTest {
     @BeforeEach
     public void setup() {
         Configuration.baseUrl = "https://demoqa.com/";
-        Configuration.timeout = 1000;
         Configuration.browserSize = "1920x1080";
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()

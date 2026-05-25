@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 @Getter
-public class WidgetsPage {
+public class AccordionPage {
     private final SelenideElement firstQuestion = $(byText("What is Lorem Ipsum?")),
             secondQuestion = $(byText("Where does it come from?")),
             thirdQuestion = $(byText("Why do we use it?")),
