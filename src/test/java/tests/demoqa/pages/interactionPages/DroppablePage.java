@@ -1,6 +1,7 @@
 package tests.demoqa.pages.interactionPages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -30,18 +31,22 @@ public class DroppablePage {
             dropHereRevert = $x("//div[@id='revertableDropContainer']//div[@id='droppable']");
 
 
+    @Step("Нажать на вкладку Accept")
     public void clickAccept() {
         acceptButton.click();
     }
 
+    @Step("Нажать на вкладку Prevent Propagation")
     public void clickPrevent() {
         preventPropagation.click();
     }
 
+    @Step("Нажать на вкладку Revert")
     public void clickRevert() {
         revert.click();
     }
 
+    @Step("Перетащить элемент {moveIt} на {toIt}")
     public DroppablePage moveElementToElement(SelenideElement moveIt, SelenideElement toIt) {
         moveIt.shouldBe(visible);
         toIt.shouldBe(visible);
@@ -54,14 +59,4 @@ public class DroppablePage {
         return this;
     }
 
-    public DroppablePage moveElementToLocation(int xCoordinate, int yCoordinate, SelenideElement element) {
-        actions()
-                .moveToElement(element)
-                .pause(200)
-                .clickAndHold(element)
-                .moveToLocation(xCoordinate, yCoordinate)
-                .release()
-                .perform();
-        return this;
-    }
 }

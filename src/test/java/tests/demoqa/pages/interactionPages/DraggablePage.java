@@ -1,6 +1,7 @@
 package tests.demoqa.pages.interactionPages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -23,6 +24,7 @@ public class DraggablePage {
             cursorTopLeft = $x("//div[@id='cursorTopLeft']"),
             cursorBottom = $x("//div[@id='cursorBottom']");
 
+    @Step("Перетащить элемент на {xOffset}px по X и {yOffset}px по Y")
     public DraggablePage moveElementByOffSet(int xOffset, int yOffset, SelenideElement element) {
         actions()
                 .moveToElement(element)
@@ -33,6 +35,7 @@ public class DraggablePage {
         return this;
     }
 
+    @Step("Перетащить элемент в координаты ({xCoordinate}, {yCoordinate})")
     public DraggablePage moveElementToLocation(int xCoordinate, int yCoordinate, SelenideElement element) {
         actions()
                 .moveToElement(element)
@@ -43,16 +46,19 @@ public class DraggablePage {
         return this;
     }
 
+    @Step("Перейти во вкладку 'Axis Restricted'")
     public DraggablePage openAxisRestricted() {
         axisRestricted.click();
         return this;
     }
 
+    @Step("Перейти во вкладку 'Container Restricted'")
     public DraggablePage openContainerRestricted() {
         containerRestricted.click();
         return this;
     }
 
+    @Step("Перейти во вкладку 'Cursor Style'")
     public DraggablePage openCursorStyle() {
         cursorStyle.click();
         return this;

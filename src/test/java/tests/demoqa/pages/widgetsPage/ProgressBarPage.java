@@ -1,6 +1,7 @@
 package tests.demoqa.pages.widgetsPage;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.Getter;
 
 import java.time.Duration;
@@ -14,10 +15,12 @@ public class ProgressBarPage {
             progressBar = $("#progressBar"),
             resetButton = $("#resetButton");
 
+    @Step("Нажать кнопку Start/Stop")
     public void clickStartStop() {
         startStop.click();
     }
 
+    @Step("Ожидание прогресса {expectedPercentage}% в течение {timeoutSeconds} секунд")
     public void waitForProgress(String expectedPercentage, int timeoutSeconds) {
         progressBar.shouldHave(text(expectedPercentage), Duration.ofSeconds(timeoutSeconds));
     }

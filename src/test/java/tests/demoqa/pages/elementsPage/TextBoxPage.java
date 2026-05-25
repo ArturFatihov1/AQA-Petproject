@@ -21,31 +21,31 @@ public class TextBoxPage {
             outputPermanentAddress = $("#output #permanentAddress"),
             output = $("#output");
 
-    @Step("fill name")
+    @Step("Ввести имя: {text}")
     public TextBoxPage setName(String text) {
         nameInput.setValue(text);
         return this;
     }
 
-    @Step("fill email")
+    @Step("Ввести email: {text}")
     public TextBoxPage setEmail(String text) {
         emailInput.setValue(text);
         return this;
     }
 
-    @Step("fill current address")
+    @Step("Ввести текущий адрес: {text}")
     public TextBoxPage setCurrentAddress(String text) {
         currentAddressInput.setValue(text);
         return this;
     }
 
-    @Step("fill permanentAddress")
+    @Step("Ввести постоянный адрес: {text}")
     public TextBoxPage setPermanentAddress(String text) {
         permanentAddressInput.setValue(text);
         return this;
     }
 
-    @Step("click submit button")
+    @Step("Нажать кнопку Submit")
     public void submit() {
         submit.click();
     }

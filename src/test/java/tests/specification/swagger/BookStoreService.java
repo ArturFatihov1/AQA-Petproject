@@ -1,6 +1,7 @@
-package tests.specification;
+package tests.specification.swagger;
 
 import io.restassured.response.Response;
+import tests.specification.RestClient;
 import tests.specification.dto.book.*;
 
 import java.util.List;
@@ -9,7 +10,7 @@ public class BookStoreService {
     private final RestClient restClient;
 
     public BookStoreService() {
-        this.restClient = new RestClient();
+        this.restClient = new RestClient("https://demoqa.com/");
     }
 
     public BooksResponse getBooks() {

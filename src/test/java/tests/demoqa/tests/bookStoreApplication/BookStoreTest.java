@@ -1,8 +1,9 @@
 package tests.demoqa.tests.bookStoreApplication;
 
+import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
-import tests.reqres.tests.baseApiTest.BaseApiTest;
+import tests.demoqa.tests.bookStoreApplication.baseApiTest.BaseApiTest;
 import tests.specification.dto.book.BooksResponse;
 import tests.specification.dto.book.CollectionOfIsbn;
 import tests.specification.dto.user.TokenDto;
@@ -12,6 +13,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Epic("DemoQA API")
+@Feature("Book Store API")
+@DisplayName("Тестирование функционала Book Store через API")
 public class BookStoreTest extends BaseApiTest {
 
     private final String ISBN_1 = "9781449325862";
@@ -20,6 +24,7 @@ public class BookStoreTest extends BaseApiTest {
     private String token;
 
     @BeforeEach
+    @Step("Подготовка тестового пользователя и получение токена")
     void setupUserAndToken() {
         String username = "QA_" + System.currentTimeMillis();
         String password = "StrongPassword*1";
@@ -32,6 +37,7 @@ public class BookStoreTest extends BaseApiTest {
     }
 
     @AfterEach
+    @Step("Удаление тестового пользователя")
     void cleanup() {
         if (userId != null && token != null) {
             accountService.deleteUser(userId, token);
@@ -39,14 +45,18 @@ public class BookStoreTest extends BaseApiTest {
     }
 
     @Test
+    @Story("Получение данных")
     @DisplayName("Получение списка всех доступных книг")
+    @Severity(SeverityLevel.NORMAL)
     void getAllBooksTest() {
         BooksResponse response = bookStoreService.getBooks();
         Assertions.assertFalse(response.books().isEmpty(), "Список книг не должен быть пустым");
     }
 
     @Test
+    @Story("Управление книгами")
     @DisplayName("Добавление книги в профиль пользователя")
+    @Severity(SeverityLevel.CRITICAL)
     void addBookToUserTest() {
         List<CollectionOfIsbn> isbnsToAdd = List.of(new CollectionOfIsbn(ISBN_1));
 
@@ -57,7 +67,9 @@ public class BookStoreTest extends BaseApiTest {
     }
 
     @Test
+    @Story("Управление книгами")
     @DisplayName("Замена одной книги в профиле пользователя")
+    @Severity(SeverityLevel.NORMAL)
     void replaceBookTest() {
         bookStoreService.postBooks(userId, List.of(new CollectionOfIsbn(ISBN_1)), token);
 
@@ -67,16 +79,16 @@ public class BookStoreTest extends BaseApiTest {
             String actualUserId = response.jsonPath().getString("userId");
             assertEquals(userId, actualUserId, "ID пользователя не совпадает");
         } else {
-            System.out.println("Ошибка при замене: " + response.asString());
             assertEquals(400, response.getStatusCode());
         }
     }
 
     @Test
+    @Story("Управление книгами")
     @DisplayName("Удаление одной книги у пользователя")
+    @Severity(SeverityLevel.NORMAL)
     void deleteSingleBookTest() {
         bookStoreService.postBooks(userId, List.of(new CollectionOfIsbn(ISBN_1)), token);
-
         bookStoreService.deleteBook(ISBN_1, userId, token);
 
         UserDto userProfile = accountService.getUser(userId, token);
@@ -84,7 +96,9 @@ public class BookStoreTest extends BaseApiTest {
     }
 
     @Test
+    @Story("Управление книгами")
     @DisplayName("Удаление всех книг пользователя")
+    @Severity(SeverityLevel.NORMAL)
     void deleteAllBooksTest() {
         List<CollectionOfIsbn> isbns = List.of(
                 new CollectionOfIsbn(ISBN_1),
@@ -95,7 +109,6 @@ public class BookStoreTest extends BaseApiTest {
         Response response = bookStoreService.deleteBooks(userId, token);
 
         assertEquals(204, response.getStatusCode(), "Статус удаления должен быть 204");
-
         UserDto userProfile = accountService.getUser(userId, token);
         Assertions.assertTrue(userProfile.books().isEmpty(), "Список книг должен быть пустым после удаления");
     }

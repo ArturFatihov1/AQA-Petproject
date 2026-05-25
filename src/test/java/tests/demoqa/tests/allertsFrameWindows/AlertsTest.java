@@ -11,7 +11,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
 import tests.demoqa.pages.allertsFrameWindowsPage.AlertsPage;
-import tests.demoqa.tests.base.BaseUiTest;
+import tests.demoqa.tests.BaseUiTest;
 
 import java.time.Duration;
 
@@ -19,7 +19,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Epic("DemoQA")
+@Epic("DemoQA ui test")
 @Feature("Alerts, Frame & Windows")
 @DisplayName("Тестирование работы с системными Alert-окнами")
 public class AlertsTest extends BaseUiTest {

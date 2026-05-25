@@ -2,6 +2,7 @@ package tests.demoqa.pages.interactionPages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -22,14 +23,17 @@ public class SelectablePage {
         return listItemsGrid.get(index);
     }
 
+    @Step("Выбрать элемент списка под индексом {index}")
     public void clickElement(int index) {
         getItemByIndex(index).click();
     }
 
+    @Step("Выбрать элемент сетки под индексом {index}")
     public void clickElementGrid(int index) {
         getItemByIndexGrid(index).click();
     }
 
+    @Step("Открыть вкладку Grid")
     public void openGridTab() {
         tabGrid.click();
     }

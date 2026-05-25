@@ -1,14 +1,22 @@
 package tests.demoqa.tests.allertsFrameWindows;
 
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.allertsFrameWindowsPage.ModalDialogPage;
-import tests.demoqa.tests.base.BaseUiTest;
+import tests.demoqa.tests.BaseUiTest;
 
 import static com.codeborne.selenide.Condition.text;
 
+@Epic("DemoQA ui test")
+@Feature("Alerts, Frame & Windows")
+@DisplayName("Тестирование работы с модальными окнами")
 public class ModalDialogsTest extends BaseUiTest {
     ModalDialogPage modalDialogPage = new ModalDialogPage();
 
@@ -23,6 +31,8 @@ public class ModalDialogsTest extends BaseUiTest {
     }
 
     @Test
+    @DisplayName("Проверка отображения содержимого маленького модального окна")
+    @Severity(SeverityLevel.NORMAL)
     public void smallModalTest() {
         modalDialogPage.clickSmallModal();
 
@@ -31,6 +41,8 @@ public class ModalDialogsTest extends BaseUiTest {
     }
 
     @Test
+    @DisplayName("Проверка отображения содержимого большого модального окна")
+    @Severity(SeverityLevel.NORMAL)
     public void largeModalTest() {
         modalDialogPage.clickLargeModal();
 

@@ -1,15 +1,18 @@
 package tests.demoqa.tests.widgets;
 
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import tests.demoqa.pages.widgetsPage.SelectMenuPage;
-import tests.demoqa.tests.base.BaseUiTest;
+import tests.demoqa.tests.BaseUiTest;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
+@Epic("DemoQA test ui")
+@Feature("Widgets")
+@Story("Select Menu")
+@DisplayName("Тестирование выпадающих списков (Select Menu)")
 public class SelectMenuTest extends BaseUiTest {
 
     SelectMenuPage selectMenuPage = new SelectMenuPage();
@@ -25,7 +28,7 @@ public class SelectMenuTest extends BaseUiTest {
     }
 
     @Test
-    @DisplayName("Select value")
+    @DisplayName("Проверка выбора Select Value")
     @Severity(SeverityLevel.NORMAL)
     void selectValueTest() {
         selectMenuPage.selectValue("Group 2, option 2");
@@ -33,7 +36,7 @@ public class SelectMenuTest extends BaseUiTest {
     }
 
     @Test
-    @DisplayName("Select one")
+    @DisplayName("Проверка выбора Select One")
     @Severity(SeverityLevel.NORMAL)
     void selectOneTest() {
         selectMenuPage.selectOne("Mr.");
@@ -41,16 +44,16 @@ public class SelectMenuTest extends BaseUiTest {
     }
 
     @Test
-    @DisplayName("Old Style Select Menu")
+    @DisplayName("Проверка Old Style Select Menu")
     @Severity(SeverityLevel.NORMAL)
     void oldStyleTest() {
         selectMenuPage.oldSelect("3");
-        selectMenuPage.getOldSelectResult().shouldHave(text("Yellow"));
+        selectMenuPage.getOldSelectMenu().shouldHave(text("Yellow"));
     }
 
     @Test
     @Disabled
-    @DisplayName("Multiselect drop down")
+    @DisplayName("Проверка Multiselect drop down")
     @Severity(SeverityLevel.NORMAL)
     void multiSelectTest() {
         selectMenuPage.multiSelectOption("Green");
@@ -68,11 +71,11 @@ public class SelectMenuTest extends BaseUiTest {
     }
 
     @Test
-    @DisplayName("Standard multi select")
+    @DisplayName("Проверка Standard multi select")
     @Severity(SeverityLevel.NORMAL)
     void standardMultiSelectTest() {
         String car = "saab";
         selectMenuPage.standardMultiSelect(car);
-        selectMenuPage.getStandardMultiSelectResult().shouldHave(text("Saab"));
+        selectMenuPage.getStandardMultiSelect().shouldHave(text("Saab"));
     }
 }
