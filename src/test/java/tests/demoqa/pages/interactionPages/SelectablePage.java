@@ -1,0 +1,36 @@
+package tests.demoqa.pages.interactionPages;
+
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
+import lombok.Getter;
+
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+
+@Getter
+public class SelectablePage {
+    private final SelenideElement tabList = $("#demo-tab-list"),
+            tabGrid = $("#demo-tab-grid");
+    private final ElementsCollection listItems = $$(".list-group-item"),
+            listItemsGrid = $$("#gridContainer li");
+
+    public SelenideElement getItemByIndex(int index) {
+        return listItems.get(index);
+    }
+
+    public SelenideElement getItemByIndexGrid(int index) {
+        return listItemsGrid.get(index);
+    }
+
+    public void clickElement(int index) {
+        getItemByIndex(index).click();
+    }
+
+    public void clickElementGrid(int index) {
+        getItemByIndexGrid(index).click();
+    }
+
+    public void openGridTab() {
+        tabGrid.click();
+    }
+}
