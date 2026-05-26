@@ -47,6 +47,6 @@ public class TextBoxPage {
 
     @Step("Нажать кнопку Submit")
     public void submit() {
-        submit.click();
+        submit.scrollIntoView(true).click();
     }
 }

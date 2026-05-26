@@ -12,7 +12,7 @@ import tests.demoqa.tests.BaseUiTest;
 
 import static com.codeborne.selenide.Condition.text;
 
-@Epic("DemoQA ui test")
+@Epic("DemoQA test ui")
 @Feature("Elements")
 @DisplayName("Тестирование различных типов нажатий на кнопки")
 @Flaky

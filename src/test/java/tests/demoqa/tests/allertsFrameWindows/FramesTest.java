@@ -14,7 +14,7 @@ import tests.demoqa.tests.BaseUiTest;
 
 import static com.codeborne.selenide.Selenide.switchTo;
 
-@Epic("DemoQA ui test")
+@Epic("DemoQA test ui")
 @Feature("Alerts, Frame & Windows")
 @DisplayName("Тестирование работы с фреймами")
 public class FramesTest extends BaseUiTest {

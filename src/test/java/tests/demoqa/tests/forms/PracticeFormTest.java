@@ -11,7 +11,7 @@ import tests.demoqa.data.PracticeFormData;
 import tests.demoqa.pages.formsPage.PracticeFormPage;
 import tests.demoqa.tests.BaseUiTest;
 
-@Epic("DemoQA ui test")
+@Epic("DemoQA test ui")
 @Feature("Forms")
 @Story("Practice Form")
 @DisplayName("Тестирование формы регистрации (Practice Form)")

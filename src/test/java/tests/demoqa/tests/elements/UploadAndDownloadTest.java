@@ -47,6 +47,6 @@ public class UploadAndDownloadTest extends BaseUiTest {
     public void uploadFileTest() {
         String fileName = "testFile.txt";
         uploadAndDownloadPage.uploadFile(fileName);
-        uploadAndDownloadPage.getUploadedFilePath().shouldHave(text("C:\\fakepath\\" + fileName));
+        uploadAndDownloadPage.getUploadedFilePath().shouldHave(text(fileName));
     }
 }

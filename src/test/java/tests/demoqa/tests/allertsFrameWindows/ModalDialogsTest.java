@@ -14,7 +14,7 @@ import tests.demoqa.tests.BaseUiTest;
 
 import static com.codeborne.selenide.Condition.text;
 
-@Epic("DemoQA ui test")
+@Epic("DemoQA test ui")
 @Feature("Alerts, Frame & Windows")
 @DisplayName("Тестирование работы с модальными окнами")
 public class ModalDialogsTest extends BaseUiTest {

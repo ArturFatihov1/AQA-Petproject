@@ -17,7 +17,7 @@ import static com.codeborne.selenide.Selenide.switchTo;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
-@Epic("DemoQA ui test")
+@Epic("DemoQA test ui")
 @Feature("Alerts, Frame & Windows")
 @DisplayName("Тестирование работы с окнами и вкладками браузера")
 public class BrowserWindowsTest extends BaseUiTest {

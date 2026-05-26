@@ -19,7 +19,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Epic("DemoQA ui test")
+@Epic("DemoQA test ui")
 @Feature("Alerts, Frame & Windows")
 @DisplayName("Тестирование работы с системными Alert-окнами")
 public class AlertsTest extends BaseUiTest {

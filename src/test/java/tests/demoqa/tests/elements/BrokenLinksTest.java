@@ -17,7 +17,7 @@ import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.url;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Epic("DemoQA ui test")
+@Epic("DemoQA test ui")
 @Feature("Elements")
 @DisplayName("Тестирование проверки битых ссылок и изображений")
 public class BrokenLinksTest extends BaseUiTest {
