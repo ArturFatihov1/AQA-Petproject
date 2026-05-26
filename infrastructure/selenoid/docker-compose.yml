@@ -7,7 +7,6 @@ services:
       - "4445:4444"
     environment:
       - DOCKER_API_VERSION=1.40
-      # Путь адаптирован под твою систему:
       - OVERRIDE_VIDEO_OUTPUT_DIR=/c/Users/laten/IdeaProjects/AQA-Petproject/infrastructure/selenoid/video
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -24,3 +23,18 @@ services:
     ports:
       - "8081:8080"
     command: [ "--selenoid-uri", "http://selenoid:4444" ]
+
+  # ДОБАВЛЯЕМ JENKINS СЮДА
+  jenkins:
+    image: jenkins/jenkins:lts-jdk21
+    container_name: jenkins
+    network_mode: bridge
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    restart: unless-stopped
+
+volumes:
+  jenkins_home:
