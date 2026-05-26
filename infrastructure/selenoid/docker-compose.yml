@@ -13,7 +13,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./:/etc/selenoid/:ro
       - ./video:/opt/selenoid/video
-    # ДОБАВЛЕН ФЛАГ СЕТИ:
     command: [ "-limit", "3", "-container-network", "qa-network" ]
 
   selenoid-ui:
@@ -44,5 +43,5 @@ volumes:
 
 networks:
   qa-network:
-    name: qa-network # ЖЕСТКО ФИКСИРУЕМ ИМЯ
+    name: qa-network
     driver: bridge

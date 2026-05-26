@@ -1,6 +1,8 @@
 package tests.reqres.tests;
 
+import io.qameta.allure.*;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.reqres.pojo.resources.PersonInfo;
 import tests.reqres.pojo.resources.ResourcesRoot;
@@ -9,9 +11,14 @@ import tests.reqres.tests.baseApiTest.BaseApiTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Feature("Работа с ресурсами (Resources)")
+@Owner("Artur Fatihov")
 public class ResourcesTest extends BaseApiTest {
 
     @Test
+    @DisplayName("Получение списка ресурсов (страница 1)")
+    @Story("Чтение данных")
+    @Severity(SeverityLevel.NORMAL)
     public void getListResourcesTest() {
         Response response = resourcesService.getResources();
 
@@ -30,6 +37,9 @@ public class ResourcesTest extends BaseApiTest {
     }
 
     @Test
+    @DisplayName("Получение списка продуктов (страница 2)")
+    @Story("Чтение данных")
+    @Severity(SeverityLevel.NORMAL)
     public void getListProductsTest() {
         Response response = resourcesService.getProducts("2");
 

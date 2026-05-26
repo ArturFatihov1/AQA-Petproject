@@ -7,8 +7,8 @@ public class ResourcesService {
     private final String API_KEY = ConfigReader.getApiKey();
     private final RestClient restClient;
 
-    public ResourcesService() {
-        this.restClient = new RestClient("https://reqres.in/", API_KEY);
+    public ResourcesService(String baseUrl) {
+        this.restClient = new RestClient(baseUrl, API_KEY);
     }
 
     public Response getResources() {

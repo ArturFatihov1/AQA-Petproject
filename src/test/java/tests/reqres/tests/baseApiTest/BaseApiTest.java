@@ -9,7 +9,7 @@ import tests.specification.reqres.UserService;
 @Execution(ExecutionMode.CONCURRENT)
 public abstract class BaseApiTest {
     protected static final String BASE_URL = "https://reqres.in/";
-    protected static final UserService userService = new UserService();
-    protected static final ResourcesService resourcesService = new ResourcesService();
-    protected static final AuthenticationService authenticationService = new AuthenticationService();
+    protected static final UserService userService = new UserService(BASE_URL);
+    protected static final ResourcesService resourcesService = new ResourcesService(BASE_URL);
+    protected static final AuthenticationService authenticationService = new AuthenticationService(BASE_URL);
 }

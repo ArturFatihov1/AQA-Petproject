@@ -10,8 +10,8 @@ public class UserService {
 
     private final RestClient restClient;
 
-    public UserService() {
-        this.restClient = new RestClient("https://reqres.in/", API_KEY);
+    public UserService(String baseUrl) {
+        this.restClient = new RestClient(baseUrl, API_KEY);
     }
 
     public Response getUsers() {

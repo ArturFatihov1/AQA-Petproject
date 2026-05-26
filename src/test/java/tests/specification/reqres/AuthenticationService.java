@@ -6,11 +6,10 @@ import tests.specification.RestClient;
 
 public class AuthenticationService {
     private final String API_KEY = ConfigReader.getApiKey();
-
     private final RestClient restClient;
 
-    public AuthenticationService() {
-        this.restClient = new RestClient("https://reqres.in/", API_KEY);
+    public AuthenticationService(String baseUrl) {
+        this.restClient = new RestClient(baseUrl, API_KEY);
     }
 
     public Response registerUser(String email, String password) {

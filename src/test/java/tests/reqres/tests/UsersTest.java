@@ -1,6 +1,8 @@
 package tests.reqres.tests;
 
+import io.qameta.allure.*;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.reqres.pojo.user.RootData;
 import tests.reqres.pojo.user.UserData;
@@ -11,9 +13,14 @@ import tests.specification.dto.user.UserPut;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Feature("Работа с пользователями")
+@Owner("Artur Fatihov")
 public class UsersTest extends BaseApiTest {
 
     @Test
+    @DisplayName("Получение списка пользователей")
+    @Story("Чтение данных")
+    @Severity(SeverityLevel.NORMAL)
     void getUsersTest() {
         Response response = userService.getUsers();
         RootData userData = response.as(RootData.class);
@@ -31,6 +38,9 @@ public class UsersTest extends BaseApiTest {
     }
 
     @Test
+    @DisplayName("Получение данных одного пользователя")
+    @Story("Чтение данных")
+    @Severity(SeverityLevel.CRITICAL)
     void getSingleUserTest() {
         Response response = userService.getUser("2");
         UserData userData = response.jsonPath().getObject("data", UserData.class);
@@ -45,6 +55,9 @@ public class UsersTest extends BaseApiTest {
     }
 
     @Test
+    @DisplayName("Создание нового пользователя")
+    @Story("Управление пользователями")
+    @Severity(SeverityLevel.CRITICAL)
     void createUserTest() {
         Response response = userService.postUser("Artur");
         UserResponse userData = response.as(UserResponse.class);
@@ -55,6 +68,9 @@ public class UsersTest extends BaseApiTest {
     }
 
     @Test
+    @DisplayName("Обновление данных пользователя")
+    @Story("Управление пользователями")
+    @Severity(SeverityLevel.NORMAL)
     void updateUserTest() {
         String name = "morpheus";
         String job = "Programmer";
@@ -69,6 +85,9 @@ public class UsersTest extends BaseApiTest {
     }
 
     @Test
+    @DisplayName("Удаление пользователя")
+    @Story("Управление пользователями")
+    @Severity(SeverityLevel.MINOR)
     void deleteUserTest() {
         Response response = userService.deleteUser("2");
         assertEquals(204, response.statusCode());
