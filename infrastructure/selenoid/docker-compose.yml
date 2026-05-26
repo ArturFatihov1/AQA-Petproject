@@ -8,12 +8,13 @@ services:
       - "4445:4444"
     environment:
       - DOCKER_API_VERSION=1.40
-      - OVERRIDE_VIDEO_OUTPUT_DIR=/opt/selenoid/video  # Меняем на внутренний путь Linux
+      - OVERRIDE_VIDEO_OUTPUT_DIR=/opt/selenoid/video
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./:/etc/selenoid/:ro
-      - ./video:/opt/selenoid/video  # Docker сам создаст локальную папку video рядом с compose файлом
-    command: [ "-limit", "3" ]
+      - ./video:/opt/selenoid/video
+    # ДОБАВЛЕН ФЛАГ СЕТИ:
+    command: [ "-limit", "3", "-container-network", "qa-network" ]
 
   selenoid-ui:
     image: aerokube/selenoid-ui:latest
@@ -41,7 +42,7 @@ services:
 volumes:
   jenkins_home:
 
-# ОБЪЯВЛЯЕМ СЕТЬ ТУТ
 networks:
   qa-network:
+    name: qa-network # ЖЕСТКО ФИКСИРУЕМ ИМЯ
     driver: bridge
