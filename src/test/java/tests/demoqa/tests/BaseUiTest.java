@@ -16,7 +16,7 @@ public abstract class BaseUiTest {
     public void setup() {
         Configuration.browser = "chrome";
 
-        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.baseUrl = "https://demoqa.com/";
         Configuration.browserSize = "1920x1080";
 
         boolean isRemote = Boolean.parseBoolean(System.getProperty("remote", "false"));
