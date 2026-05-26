@@ -2,18 +2,17 @@ services:
   selenoid:
     image: aerokube/selenoid:latest
     container_name: selenoid
-    # Заменяем network_mode: bridge на общую сеть:
     networks:
       - qa-network
     ports:
       - "4445:4444"
     environment:
       - DOCKER_API_VERSION=1.40
-      - OVERRIDE_VIDEO_OUTPUT_DIR=/c/Users/laten/IdeaProjects/AQA-Petproject/infrastructure/selenoid/video
+      - OVERRIDE_VIDEO_OUTPUT_DIR=/opt/selenoid/video  # Меняем на внутренний путь Linux
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./:/etc/selenoid/:ro
-      - ./video:/opt/selenoid/video
+      - ./video:/opt/selenoid/video  # Docker сам создаст локальную папку video рядом с compose файлом
     command: [ "-limit", "3" ]
 
   selenoid-ui:

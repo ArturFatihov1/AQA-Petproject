@@ -31,7 +31,7 @@ public abstract class BaseUiTest {
 
             options.setCapability("selenoid:options", Map.of(
                     "enableVNC", true,
-                    "enableVideo", true
+                    "enableVideo", false
             ));
 
             Configuration.browserCapabilities = options;
