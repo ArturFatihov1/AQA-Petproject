@@ -26,7 +26,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'REQRES_API_KEY', variable: 'SECRET_TOKEN')]) {
 
                     // Передаем токен для API и настройки сетки для UI-тестов
-                    sh "mvn test -Dremote=true -DgridUrl=http://selenoid:4444/wd/hub -Dapi.token=${SECRET_TOKEN}"
+                    sh 'mvn test -Dremote=true -DgridUrl=http://host.docker.internal:4445/wd/hub -Dapi.key=${SECRET_TOKEN}'
                 }
             }
         }

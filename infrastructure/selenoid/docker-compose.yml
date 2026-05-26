@@ -2,7 +2,9 @@ services:
   selenoid:
     image: aerokube/selenoid:latest
     container_name: selenoid
-    network_mode: bridge
+    # Заменяем network_mode: bridge на общую сеть:
+    networks:
+      - qa-network
     ports:
       - "4445:4444"
     environment:
@@ -17,18 +19,19 @@ services:
   selenoid-ui:
     image: aerokube/selenoid-ui:latest
     container_name: selenoid-ui
-    network_mode: bridge
+    networks:
+      - qa-network
     links:
       - selenoid
     ports:
       - "8081:8080"
     command: [ "--selenoid-uri", "http://selenoid:4444" ]
 
-  # ДОБАВЛЯЕМ JENKINS СЮДА
   jenkins:
     image: jenkins/jenkins:lts-jdk21
     container_name: jenkins
-    network_mode: bridge
+    networks:
+      - qa-network
     ports:
       - "8080:8080"
       - "50000:50000"
@@ -38,3 +41,8 @@ services:
 
 volumes:
   jenkins_home:
+
+# ОБЪЯВЛЯЕМ СЕТЬ ТУТ
+networks:
+  qa-network:
+    driver: bridge
