@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.bookStoreApplicationPage.LoginPage;
-import tests.demoqa.tests.base.BaseUiTest;
+import tests.demoqa.tests.BaseUiTest;
 
 import java.time.Duration;
 

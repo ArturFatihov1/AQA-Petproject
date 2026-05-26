@@ -9,7 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.data.PracticeFormData;
 import tests.demoqa.pages.formsPage.PracticeFormPage;
-import tests.demoqa.tests.base.BaseUiTest;
+import tests.demoqa.tests.BaseUiTest;
 
 @Epic("DemoQA ui test")
 @Feature("Forms")

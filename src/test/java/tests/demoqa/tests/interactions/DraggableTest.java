@@ -10,7 +10,7 @@ import org.junitpioneer.jupiter.RetryingTest;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.Rectangle;
 import tests.demoqa.pages.interactionPages.DraggablePage;
-import tests.demoqa.tests.base.BaseUiTest;
+import tests.demoqa.tests.BaseUiTest;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.closeWebDriver;

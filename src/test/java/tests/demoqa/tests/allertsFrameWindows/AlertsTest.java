@@ -11,7 +11,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
 import tests.demoqa.pages.allertsFrameWindowsPage.AlertsPage;
-import tests.demoqa.tests.base.BaseUiTest;
+import tests.demoqa.tests.BaseUiTest;
 
 import java.time.Duration;
 

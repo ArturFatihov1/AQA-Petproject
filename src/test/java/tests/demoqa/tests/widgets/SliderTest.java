@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junitpioneer.jupiter.RetryingTest;
 import tests.demoqa.pages.widgetsPage.SliderPage;
-import tests.demoqa.tests.base.BaseUiTest;
+import tests.demoqa.tests.BaseUiTest;
 
 import static com.codeborne.selenide.Condition.value;
 

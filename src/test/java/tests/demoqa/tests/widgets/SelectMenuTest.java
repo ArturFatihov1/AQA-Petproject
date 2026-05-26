@@ -3,7 +3,7 @@ package tests.demoqa.tests.widgets;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import tests.demoqa.pages.widgetsPage.SelectMenuPage;
-import tests.demoqa.tests.base.BaseUiTest;
+import tests.demoqa.tests.BaseUiTest;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -48,7 +48,7 @@ public class SelectMenuTest extends BaseUiTest {
     @Severity(SeverityLevel.NORMAL)
     void oldStyleTest() {
         selectMenuPage.oldSelect("3");
-        selectMenuPage.getOldSelectResult().shouldHave(text("Yellow"));
+        selectMenuPage.getOldSelectMenu().shouldHave(text("Yellow"));
     }
 
     @Test
@@ -76,6 +76,6 @@ public class SelectMenuTest extends BaseUiTest {
     void standardMultiSelectTest() {
         String car = "saab";
         selectMenuPage.standardMultiSelect(car);
-        selectMenuPage.getStandardMultiSelectResult().shouldHave(text("Saab"));
+        selectMenuPage.getStandardMultiSelect().shouldHave(text("Saab"));
     }
 }

@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tests.demoqa.pages.elementsPage.BrokenLinksPage;
-import tests.demoqa.tests.base.BaseUiTest;
+import tests.demoqa.tests.BaseUiTest;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.webdriver;

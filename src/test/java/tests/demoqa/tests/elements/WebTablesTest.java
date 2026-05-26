@@ -6,7 +6,7 @@ import net.datafaker.Faker;
 import org.junit.jupiter.api.*;
 import tests.demoqa.data.WebTablesData;
 import tests.demoqa.pages.elementsPage.WebTablesPage;
-import tests.demoqa.tests.base.BaseUiTest;
+import tests.demoqa.tests.BaseUiTest;
 
 @Epic("DemoQA test ui")
 @Feature("Elements")

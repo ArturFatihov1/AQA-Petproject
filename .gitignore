@@ -14,7 +14,7 @@ target/
 *.ipr
 .idea
 
-
+src/test/resources/config.properties
 
 ### Eclipse ###
 .apt_generated

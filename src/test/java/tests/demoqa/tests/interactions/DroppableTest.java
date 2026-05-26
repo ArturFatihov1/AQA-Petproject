@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junitpioneer.jupiter.RetryingTest;
 import org.openqa.selenium.Point;
 import tests.demoqa.pages.interactionPages.DroppablePage;
-import tests.demoqa.tests.base.BaseUiTest;
+import tests.demoqa.tests.BaseUiTest;
 
 import static com.codeborne.selenide.Condition.text;
 import static org.junit.jupiter.api.Assertions.assertEquals;

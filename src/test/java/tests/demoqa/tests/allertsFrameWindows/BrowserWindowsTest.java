@@ -8,7 +8,7 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WindowType;
 import tests.demoqa.pages.allertsFrameWindowsPage.BrowserWindowsPage;
-import tests.demoqa.tests.base.BaseUiTest;
+import tests.demoqa.tests.BaseUiTest;
 
 import java.time.Duration;
 

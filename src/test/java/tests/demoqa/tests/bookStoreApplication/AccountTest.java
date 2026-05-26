@@ -3,7 +3,7 @@ package tests.demoqa.tests.bookStoreApplication;
 import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
-import tests.reqres.tests.baseApiTest.BaseApiTest;
+import tests.demoqa.tests.bookStoreApplication.baseApiTest.BaseApiTest;
 import tests.specification.dto.user.TokenDto;
 import tests.specification.dto.user.UserDto;
 
